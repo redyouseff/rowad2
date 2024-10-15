@@ -8,7 +8,7 @@ const router=express.Router();
 
 
 router.route("/").post(uploadImage,reasizeImage,createUser)
-.get(protect,allowedTo("damin","user"),getAllUser)
+.get(protect,allowedTo("admin","user"),getAllUser)
 
 router.route("/:id").get(getSpesificUser)
 .delete(deleteUser)
