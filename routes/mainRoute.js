@@ -3,6 +3,7 @@ const authRoute=require("./authRoute.js")
 const courseRoute=require("./courseRoute")
 const feedbackRoute =require("./feedbackRoute")
 const cartRoute=require("./cartRoute.js")
+const orderRoute=require("./orderRoute.js")
 
 
 const mainRoute=(app)=>{
@@ -12,6 +13,7 @@ const mainRoute=(app)=>{
     app.use("/course",courseRoute)
     app.use("/feedback",feedbackRoute)
     app.use("/cart",cartRoute)
+    app.use("/order",orderRoute)
     
    
 }

@@ -60,7 +60,13 @@ const coureSchema=mongoose.Schema({
         url:String,
         publicId:String,
 
-    }
+    },
+    sold:{
+        type:Number,
+        default:0
+    },
+    
+
     
 
 })

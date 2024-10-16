@@ -49,6 +49,7 @@ userSchema=mongoose.Schema({
     passwordResetCode:String,
     passwordResetExpires:Date,
     passwordResetVerified:Boolean,
+    course:[{ type: mongoose.Schema.Types.ObjectId, ref: 'course' }],
     
 
 })
