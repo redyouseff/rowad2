@@ -8,6 +8,7 @@ const { cartModel } = require("../models/cartModel");
 
 const createOrder=asyncHandler(async(req,res,next)=>{
 const cart=await cartModel.findOne({user:req.currentUser._id})
+
 const user=await userModel.findById(req.currentUser._id)
 if(!cart){
     return next (new apiError(`there is no cart for this id ${req.currentUser._id}`,400));

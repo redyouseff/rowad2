@@ -51,6 +51,10 @@ const addToCart=asyncHandler(async(req,res,next)=>{
 
 const getLoggedUseerCart=asyncHandler(async(req,res,next)=>{
     const cart =await cartModel.findOne({user:req.currentUser._id})
+    .populate({
+        path: 'cartItems.course', 
+    });
+
     if(!cart){
         return next(new apiError(`ther is no cart for this user ${req.currentUser.name}`,400));
     }
