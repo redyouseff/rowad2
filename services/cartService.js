@@ -25,18 +25,22 @@ const calcTotalPrice=(cart)=>{
 const addToCart=asyncHandler(async(req,res,next)=>{
     const {courseId,quantity}=req.body;
     const course=await courseModel.findById(courseId);
+  
     let cart=await cartModel.findOne({user:req.currentUser._id});
+  
     if(!cart){
         cart =await cartModel.create({
             user:req.currentUser._id,
             cartItems:[{course:courseId,price:course.price,quantity:"1"}]
         })  
+       
     }
+   
     else{
         const courseIndex= cart.cartItems.findIndex((item)=>item.course.toString()==courseId)
         if(courseIndex>-1){
 
-           return next(new apiError(`this coures ${cart._id} has been added to your cart `,400))
+           return next(new apiError(`this coures has been added to your cart `,400))
         }
       
             cart.cartItems.push({course:courseId,price:course.price,quantity:"1"})
