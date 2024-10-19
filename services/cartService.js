@@ -67,7 +67,7 @@ const getLoggedUseerCart=asyncHandler(async(req,res,next)=>{
 
 const deleteSpesificItem=asyncHandler(async(req,res,next)=>{
     const cart =await cartModel.findOneAndUpdate({user:req.currentUser._id},{
-        $pull:{cartItems:{_id:req.params.itemId}}
+        $pull:{cartItems:{course:req.params.itemId}}
     },
 {new:true})
 
