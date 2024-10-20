@@ -5,7 +5,7 @@ const coureSchema=mongoose.Schema({
     title:{
         type:String,
         required:[true,"title is required"],
-        maxLength:[20,"to long title "],
+        maxLength:[100,"to long title "],
         minLenth:[3,"to short title"],
     },
     image:{
