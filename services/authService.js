@@ -188,6 +188,15 @@ const allowedTo=(...roles)=>{
 
   })
 
+  const getLoggedUser=asyncHandler(async(req,res,next)=>{
 
-module.exports= {signup,reasizeImage,uploadImage,login,protect,allowedTo,forgetPassword,verifyResetCode,resetPassword}
+    const user=await userModel.find({_id:req.currentUser._id})
+    if(!user){
+        next(new apiError(`there is no user`));
+    }
+    res.status(200).json({data:user})
+  })
+
+
+module.exports= {signup,reasizeImage,uploadImage,login,protect,allowedTo,forgetPassword,verifyResetCode,resetPassword,getLoggedUser}
 

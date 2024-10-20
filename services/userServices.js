@@ -96,6 +96,7 @@ const updateUser=asyncHandler(async(req,res,next)=>{
 
 
 
+
 module.exports={createUser,uploadImage,reasizeImage,getSpesificUser,getAllUser,deleteUser,updateUser}
 
 
