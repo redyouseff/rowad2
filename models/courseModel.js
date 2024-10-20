@@ -17,7 +17,7 @@ const coureSchema=mongoose.Schema({
     description:{
         type:String,
         required:[true,"description is required"],
-        maxLength:[100,"too long description"],
+        maxLength:[1000,"too long description"],
         minLenth:[6,"too short description"],
 
 
