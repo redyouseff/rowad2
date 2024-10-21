@@ -14,8 +14,11 @@ const cloudinaryUploadImage = async(FileToUpload)=>{
         const data = await cloudinary.uploader.upload(FileToUpload,{
             resource_type:'auto',
         })
+        console.log(data)
         return data;
     } catch (error) {
+        
+        console.log(error,"e")
         return error
     }
 }

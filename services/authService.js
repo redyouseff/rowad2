@@ -190,7 +190,7 @@ const allowedTo=(...roles)=>{
 
   const getLoggedUser=asyncHandler(async(req,res,next)=>{
 
-    const user=await userModel.find({_id:req.currentUser._id})
+    const user=await userModel.find({_id:req.currentUser._id}).populate("course")
     if(!user){
         next(new apiError(`there is no user`));
     }

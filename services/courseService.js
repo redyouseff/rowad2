@@ -9,6 +9,7 @@ const apiError = require("../utilts/apiError");
 const { use } = require("../routes/userRoute");
 const { cloudinaryUploadImage } = require("../utilts/Cloudinary");
 const path = require("path");
+const { reset } = require("nodemon");
 
 
 
@@ -41,6 +42,7 @@ const reasizeImage=asyncHandler( async (req,res,next)=>{
         `../uploads/course/${req.body.image}`
       );
       const result = await cloudinaryUploadImage(imagePath);
+      console.log(result)
       
 
     const data=await courseModel(req.body);
@@ -48,7 +50,8 @@ const reasizeImage=asyncHandler( async (req,res,next)=>{
         url: result.secure_url,
         publicId: result.public_id,
       };
-      const newdata=await courseModel.create(data)
+      
+      const newdata=await courseModel.create(data) 
 
     if(!newdata){
         return next(new apiError("there is an error on creating courese",400));
